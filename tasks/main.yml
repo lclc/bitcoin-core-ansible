@@ -1,0 +1,3 @@
+---
+  - include: bitcoin.yml
+  - include: systemd.yml

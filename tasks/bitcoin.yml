@@ -1,0 +1,21 @@
+- name: Add bitcoin PPA
+  apt_repository:
+    repo='ppa:bitcoin/bitcoin'
+
+- name: Install bitcoin-core package
+  apt:
+    name: bitcoind
+
+- name: Create /home/ubuntu/.bitcoin directory
+  file:
+    path: /home/ubuntu/.bitcoin
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+
+- name: Copy bitcoin.conf file
+  copy:
+    src: bitcoin.conf
+    dest: /home/ubuntu/.bitcoin/bitcoin.conf
+    owner: ubuntu
+    group: ubuntu

@@ -1,0 +1,13 @@
+- name: Setup systemd file for Bitcoin Core
+  copy:
+    src: bitcoind.service
+    dest: /etc/systemd/system/bitcoind.service
+    owner: root
+    group: root
+
+- name: Start Bitcoin Core with systemd
+  systemd:
+    name: bitcoind.service
+    daemon_reload: yes
+    enabled: yes
+    state: started
