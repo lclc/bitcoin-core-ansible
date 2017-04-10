@@ -12,7 +12,9 @@ There are no requirements.
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The only variable available is defining your own bitcoin.conf file instead of using the default one from /files/bitcoin.conf.
+
+For more information about the configuration option of Bitcoin Core see https://bitcoin.org/en/full-node and https://jlopp.github.io/bitcoin-core-config-generator/
 
 Dependencies
 ------------
@@ -21,11 +23,9 @@ There are no dependencies.
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: nodes
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: lclc.bitcoin-core, bitcoinConfigFile: bitcoin.conf }
 
 License
 -------

@@ -13,9 +13,18 @@
     owner: ubuntu
     group: ubuntu
 
-- name: Copy bitcoin.conf file
+- name: Copy default bitcoin.conf file
   copy:
     src: bitcoin.conf
     dest: /home/ubuntu/.bitcoin/bitcoin.conf
     owner: ubuntu
     group: ubuntu
+  when: bitcoinConfigFile == "default"
+
+- name: Copy custom bitcoin.conf file
+  copy:
+    src: "{{ bitcoinConfigFile }}"
+    dest: /home/ubuntu/.bitcoin/bitcoin.conf
+    owner: ubuntu
+    group: ubuntu
+  when: not bitcoinConfigFile == "default"
