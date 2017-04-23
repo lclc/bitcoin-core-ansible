@@ -5,6 +5,7 @@
 - name: Install bitcoin-core package
   apt:
     name: bitcoind
+    state: latest
 
 - name: Create /home/ubuntu/.bitcoin directory
   file:
